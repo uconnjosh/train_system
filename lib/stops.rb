@@ -28,10 +28,8 @@ class Stops
      results = DB.exec("INSERT INTO stops (stations_id, lines_id) VALUES ('#{@stations_id}','#{@lines_id}') RETURNING id;")
      @id = results.first['id'].to_i
   end
-
 end
 
 
-# SELECT * FROM stations JOIN stops ON stops.station_id = stations.id JOIN lines ON lines.id = stops.lines_id
 
-# SELECT * FROM stops WHERE stations_id = ('#{stations_id}') RETURNING lines_id
+

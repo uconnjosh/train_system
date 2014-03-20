@@ -23,3 +23,6 @@ describe 'Stops' do
     Stops.all.should eq [new_stop]
   end
 end
+
+
+

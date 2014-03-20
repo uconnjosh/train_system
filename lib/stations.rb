@@ -17,7 +17,7 @@ class Stations
     results.each do |result|
       location = result['location']
       id = result['id'].to_i
-      all_stations << Stations.new(location)
+      all_stations << Stations.new(location, id)
     end
     all_stations
   end
@@ -27,8 +27,20 @@ class Stations
     @id = results.first['id'].to_i
   end
 
+  def add_line(chosen_line)
+    current_new_line = Lines.new(chosen_line)
+    new_line_id = current_new_line.id
+    DB.exec("INSERT INTO stops (stations_id, lines_id) VALUES ('#{id}' '#{current_line_id}');")
+  end
+
   def delete
     DB.exec("DELETE FROM stations WHERE (id) = #{@id}")
   end
+
+  # def find_lines
+  #   current_line_id = DB.exec("SELECT * FROM stops WHERE id = ('#{stations_id}') RETURNING lines_id;")
+  #   DB.exec("SELECT * FROM lines WHERE lines_id = ('#{current_line_id}'') RETURNING";)
+  # end
 end
+
 

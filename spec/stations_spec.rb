@@ -36,6 +36,17 @@ describe 'Stations' do
     test_station1.delete
     Stations.all.should eq []
   end
+
+# end
+
+#   describe 'find_lines' do
+#     it 'Finds all the lines that stop at a certain station' do
+#       test_station1 = Stations.new('5th and Alder')
+#       test_station1.save
+#       test_line1 = Lines.new('Blue')
+#       test_line1.save
+#       test_station1.find_lines.should eq ['Blue']
+#     end
 end
 
 
